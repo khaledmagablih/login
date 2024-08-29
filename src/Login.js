@@ -1,13 +1,13 @@
-// src/Login.js
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import LoginForm from './LoginForm';
-import { UserContext } from './contexts/UserContext';
+import { login } from './features/auth/authSlice';
 
 function Login() {
-  const { setUser } = useContext(UserContext);
+  const dispatch = useDispatch();
 
   const handleLogin = (email, password) => {
-    setUser({ email, password });
+    dispatch(login({ email, password }));
   };
 
   return (
